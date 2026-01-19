@@ -200,16 +200,7 @@ Use the same tokens consistently to ensure correct equality checks.
 
 Kata uses System Colors by default, automatically adapting to light/dark mode.
 
-For custom dark mode colors:
-
-```swift
-let theme = Theme.standard.modified {
-    $0.lightColors.primary = .blue
-    $0.darkColors = Colors.standard.modified {
-        $0.primary = .cyan
-    }
-}
-```
+For custom dark mode colors, set `darkColors` in your theme (see [Custom Theme](#custom-theme)).
 
 ## Direct Access
 
@@ -220,47 +211,6 @@ For VStack/HStack spacing:
 
 VStack(spacing: theme.spacing.sm) {
     // ...
-}
-```
-
-## Figma Integration
-
-Convert Figma Design Tokens to Kata Theme using AI:
-
-**Figma Tokens JSON:**
-
-```json
-{
-  "colors": {
-    "primary": { "value": "#6200EE" },
-    "secondary": { "value": "#03DAC6" }
-  },
-  "spacing": {
-    "sm": { "value": "8" },
-    "md": { "value": "16" }
-  }
-}
-```
-
-**AI Prompt:**
-
-```
-Convert this Figma Design Tokens JSON to Kata Theme:
-[paste JSON]
-
-Output format:
-let theme = Theme.standard.modified { ... }
-Use Color(hex:) for colors.
-```
-
-**Generated Code:**
-
-```swift
-let figmaTheme = Theme.standard.modified {
-    $0.lightColors.primary = Color(hex: "#6200EE")
-    $0.lightColors.secondary = Color(hex: "#03DAC6")
-    $0.spacing.sm = 8
-    $0.spacing.md = 16
 }
 ```
 
