@@ -20,12 +20,12 @@
 ///     var body: some View {
 ///         VStack {
 ///             Text("Welcome")
-///                 .textStyle(\.h1)
+///                 .textStyle(\.largeTitle)
 ///                 .foreground(\.primary)
 ///
 ///             Text("Body content here")
 ///                 .textStyle(\.body)
-///                 .foreground(\.onBackground)
+///                 .foreground(\.secondary)
 ///         }
 ///         .padding(\.md)
 ///         .background(\.background)
@@ -37,9 +37,9 @@
 ///
 /// ```swift
 /// let darkTheme = Theme.standard.modified {
-///     $0.colors.background = .black
-///     $0.colors.onBackground = .white
-///     $0.colors.primary = .blue
+///     $0.lightColors.background = .black
+///     $0.lightColors.surface = .gray
+///     $0.lightColors.primary = .blue
 /// }
 ///
 /// ContentView()
@@ -56,7 +56,7 @@
 /// - `.overlay(\.scrim)` - Set overlay color
 ///
 /// ### Typography
-/// - `.textStyle(\.h1)` - Set text style
+/// - `.textStyle(\.largeTitle)` - Set text style
 ///
 /// ### Spacing
 /// - `.padding(\.md)` - Add padding
