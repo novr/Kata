@@ -36,14 +36,17 @@
 /// ## Custom Themes
 ///
 /// ```swift
-/// let darkTheme = Theme.standard.modified {
-///     $0.lightColors.background = .black
-///     $0.lightColors.surface = .gray
-///     $0.lightColors.primary = .blue
+/// let customTheme = Theme.standard.modified {
+///     $0.lightColors.primary = .purple
+///     $0.lightColors.secondary = .pink
+///     $0.darkColors = Colors.standard.modified {
+///         $0.primary = .cyan
+///         $0.background = .black
+///     }
 /// }
 ///
 /// ContentView()
-///     .kata(theme: darkTheme)
+///     .kata(theme: customTheme)
 /// ```
 ///
 /// ## Available Modifiers
