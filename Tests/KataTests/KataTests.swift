@@ -195,6 +195,20 @@ import SwiftUI
     #expect(colors1 == colors2)
 }
 
+@Test func colorsWithDifferentInitializersAreNotEqual() {
+    // SwiftUIのColorは生成方法が異なると等しくならない（制限事項）
+    let color1 = Color.red
+    let color2 = Color(red: 1, green: 0, blue: 0)
+    #expect(color1 != color2)
+}
+
+@Test func fontsWithDifferentInitializersAreNotEqual() {
+    // SwiftUIのFontも生成方法が異なると等しくならない（制限事項）
+    let font1 = Font.body
+    let font2 = Font.system(size: 17)
+    #expect(font1 != font2)
+}
+
 // MARK: - Color Hex Tests
 
 @Test func colorHex6Digit() {
