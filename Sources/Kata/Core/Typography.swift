@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct Typography: Sendable, Modifiable {
+public struct Typography: Sendable, Modifiable, Equatable {
     public var largeTitle: Font
     public var title: Font
     public var title2: Font

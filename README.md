@@ -165,6 +165,37 @@ SomeView()
     .kata { $0.spacing.md = 24 }
 ```
 
+### Nested Theme Modifications
+
+Child views inherit the parent's theme and can modify it further:
+
+```swift
+// Parent applies theme
+ContentView()
+    .kata { $0.spacing.md = 20 }
+
+// Inside ContentView, child inherits md = 20
+struct ContentView: View {
+    var body: some View {
+        ChildView()
+            .kata { $0.spacing.lg = 32 }  // md = 20 (inherited), lg = 32
+    }
+}
+```
+
+Each `.kata { }` receives the current theme from its parent, allowing incremental customization.
+
+### Equatable Limitations
+
+All theme types conform to `Equatable`, but SwiftUI's `Color` and `Font` comparison has limitations:
+
+```swift
+Color.red == Color.red                      // true
+Color.red == Color(red: 1, green: 0, blue: 0)  // false ⚠️
+```
+
+Use the same tokens consistently to ensure correct equality checks.
+
 ## Dark Mode
 
 Kata uses System Colors by default, automatically adapting to light/dark mode.

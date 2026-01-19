@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct Theme: Sendable, Modifiable {
+public struct Theme: Sendable, Modifiable, Equatable {
     public var lightColors: Colors
     public var darkColors: Colors?
     public var typography: Typography

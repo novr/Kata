@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct Colors: Sendable, Modifiable {
+public struct Colors: Sendable, Modifiable, Equatable {
     public var primary: Color
     public var secondary: Color
     public var tertiary: Color
