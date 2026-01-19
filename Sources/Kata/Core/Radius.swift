@@ -13,7 +13,7 @@ import SwiftUI
 /// RoundedRectangle(cornerRadius: theme.radius.md)
 ///     .cornerRadius(\.lg)
 /// ```
-public struct Radius: Sendable, Modifiable {
+public struct Radius: Sendable, Modifiable, Equatable {
 
     // MARK: - Radius Scale
 

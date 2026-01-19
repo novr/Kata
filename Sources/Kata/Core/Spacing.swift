@@ -13,7 +13,7 @@ import SwiftUI
 /// VStack(spacing: theme.spacing.md) { ... }
 ///     .padding(\.lg)
 /// ```
-public struct Spacing: Sendable, Modifiable {
+public struct Spacing: Sendable, Modifiable, Equatable {
 
     // MARK: - Spacing Scale
 

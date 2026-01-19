@@ -165,6 +165,18 @@ SomeView()
     .kata { $0.spacing.md = 24 }
 ```
 
+### Nested Theme Modifications
+
+When nesting `.kata { }` calls, child modifications inherit the parent's theme:
+
+```swift
+ContentView()
+    .kata { $0.spacing.md = 20 }      // md = 20
+    .kata { $0.spacing.lg = 32 }      // md = 20 (inherited), lg = 32
+```
+
+Each `.kata { }` receives the current theme from its parent, allowing incremental customization.
+
 ## Dark Mode
 
 Kata uses System Colors by default, automatically adapting to light/dark mode.
