@@ -78,15 +78,15 @@ import SwiftUI
 }
 
 @Test func spacingValuesAreOrdered() {
-    let s = Spacing.standard
-    #expect(s.none < s.xxs)
-    #expect(s.xxs < s.xs)
-    #expect(s.xs < s.sm)
-    #expect(s.sm < s.md)
-    #expect(s.md < s.lg)
-    #expect(s.lg < s.xl)
-    #expect(s.xl < s.xxl)
-    #expect(s.xxl < s.xxxl)
+    let spacing = Spacing.standard
+    #expect(spacing.none < spacing.xxs)
+    #expect(spacing.xxs < spacing.xs)
+    #expect(spacing.xs < spacing.sm)
+    #expect(spacing.sm < spacing.md)
+    #expect(spacing.md < spacing.lg)
+    #expect(spacing.lg < spacing.xl)
+    #expect(spacing.xl < spacing.xxl)
+    #expect(spacing.xxl < spacing.xxxl)
 }
 
 // MARK: - Radius Tests
@@ -104,31 +104,31 @@ import SwiftUI
 }
 
 @Test func radiusValuesAreOrdered() {
-    let r = Radius.standard
-    #expect(r.none < r.xs)
-    #expect(r.xs < r.sm)
-    #expect(r.sm < r.md)
-    #expect(r.md < r.lg)
-    #expect(r.lg < r.xl)
-    #expect(r.xl < r.xxl)
-    #expect(r.xxl < r.full)
+    let radius = Radius.standard
+    #expect(radius.none < radius.xs)
+    #expect(radius.xs < radius.sm)
+    #expect(radius.sm < radius.md)
+    #expect(radius.md < radius.lg)
+    #expect(radius.lg < radius.xl)
+    #expect(radius.xl < radius.xxl)
+    #expect(radius.xxl < radius.full)
 }
 
 // MARK: - Typography Tests
 
 @Test func typographyStandardHasAllStyles() {
-    let t = Typography.standard
-    #expect(t.largeTitle == .largeTitle)
-    #expect(t.title == .title)
-    #expect(t.title2 == .title2)
-    #expect(t.title3 == .title3)
-    #expect(t.headline == .headline)
-    #expect(t.subheadline == .subheadline)
-    #expect(t.body == .body)
-    #expect(t.callout == .callout)
-    #expect(t.footnote == .footnote)
-    #expect(t.caption == .caption)
-    #expect(t.caption2 == .caption2)
+    let typography = Typography.standard
+    #expect(typography.largeTitle == .largeTitle)
+    #expect(typography.title == .title)
+    #expect(typography.title2 == .title2)
+    #expect(typography.title3 == .title3)
+    #expect(typography.headline == .headline)
+    #expect(typography.subheadline == .subheadline)
+    #expect(typography.body == .body)
+    #expect(typography.callout == .callout)
+    #expect(typography.footnote == .footnote)
+    #expect(typography.caption == .caption)
+    #expect(typography.caption2 == .caption2)
 }
 
 // MARK: - Colors Tests
@@ -138,11 +138,11 @@ import SwiftUI
 }
 
 @Test func colorsSemanticColors() {
-    let c = Colors.standard
-    #expect(c.error == .red)
-    #expect(c.success == .green)
-    #expect(c.warning == .yellow)
-    #expect(c.info == .blue)
+    let colors = Colors.standard
+    #expect(colors.error == .red)
+    #expect(colors.success == .green)
+    #expect(colors.warning == .yellow)
+    #expect(colors.info == .blue)
 }
 
 // MARK: - Color Hex Tests
