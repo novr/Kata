@@ -145,6 +145,30 @@ import SwiftUI
     #expect(colors.info == .blue)
 }
 
+// MARK: - Kata Modify Tests
+
+@Test func kataModifyClosureChangesTheme() {
+    var theme = Theme.standard
+    let originalMd = theme.spacing.md
+
+    // inoutクロージャでの変更をシミュレート
+    let modify: (inout Theme) -> Void = { $0.spacing.md = 999 }
+    modify(&theme)
+
+    #expect(theme.spacing.md == 999)
+    #expect(originalMd != 999)
+}
+
+@Test func kataModifyPreservesOriginalTheme() {
+    let original = Theme.standard
+    var copy = original
+    copy.spacing.md = 999
+
+    // 値型なのでオリジナルは変更されない
+    #expect(original.spacing.md != 999)
+    #expect(copy.spacing.md == 999)
+}
+
 // MARK: - Color Hex Tests
 
 @Test func colorHex6Digit() {
