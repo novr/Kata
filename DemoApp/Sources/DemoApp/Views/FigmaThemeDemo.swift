@@ -4,14 +4,6 @@ import Kata
 struct FigmaThemeDemo: View {
     @Environment(\.theme) private var theme
 
-    // Generated from Figma Design Tokens using AI
-    private let figmaTheme = Theme.standard.modified {
-        $0.lightColors.primary = Color(hex: "#6200EE")
-        $0.lightColors.secondary = Color(hex: "#03DAC6")
-        $0.spacing.sm = 8
-        $0.spacing.md = 16
-    }
-
     var body: some View {
         ScrollView {
             VStack(spacing: theme.spacing.md) {
@@ -24,7 +16,7 @@ struct FigmaThemeDemo: View {
         }
         .background(\.surfaceVariant)
         .navigationTitle("Figma Theme")
-        .kata(theme: figmaTheme)
+        .kata(theme: .figma)
     }
 
     private var headerSection: some View {
