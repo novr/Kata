@@ -15,6 +15,7 @@ extension Color {
         case 8: // ARGB (32-bit)
             (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
         default:
+            assertionFailure("Invalid hex color string: \(hex)")
             (a, r, g, b) = (255, 0, 0, 0)
         }
 

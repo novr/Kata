@@ -22,10 +22,6 @@ extension View {
         environment(\.theme, theme)
     }
 
-    public func kata() -> some View {
-        environment(\.theme, .standard)
-    }
-
     public func kata(modify: @escaping (inout Theme) -> Void) -> some View {
         modifier(KataModifyModifier(modify: modify))
     }
