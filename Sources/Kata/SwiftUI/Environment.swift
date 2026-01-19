@@ -25,4 +25,19 @@ extension View {
     public func kata() -> some View {
         environment(\.theme, .standard)
     }
+
+    public func kata(modify: @escaping (inout Theme) -> Void) -> some View {
+        modifier(KataModifyModifier(modify: modify))
+    }
+}
+
+private struct KataModifyModifier: ViewModifier {
+    @Environment(\.theme) private var currentTheme
+    let modify: (inout Theme) -> Void
+
+    func body(content: Content) -> some View {
+        var newTheme = currentTheme
+        modify(&newTheme)
+        return content.environment(\.theme, newTheme)
+    }
 }

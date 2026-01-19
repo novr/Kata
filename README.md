@@ -127,6 +127,25 @@ ContentView().kata(theme: customTheme)
 
 ## Theme Customization
 
+### App Entry Point
+
+```swift
+@main
+struct MyApp: App {
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+                .kata { theme in
+                    theme.lightColors.primary = .blue
+                    theme.spacing.md = 20
+                }
+        }
+    }
+}
+```
+
+### Custom Theme
+
 ```swift
 let customTheme = Theme.standard.modified {
     $0.lightColors.primary = .blue
@@ -136,6 +155,14 @@ let customTheme = Theme.standard.modified {
 }
 
 ContentView().kata(theme: customTheme)
+```
+
+### Modify Current Theme
+
+```swift
+// Modify the current theme for child views
+SomeView()
+    .kata { $0.spacing.md = 24 }
 ```
 
 ## Dark Mode
