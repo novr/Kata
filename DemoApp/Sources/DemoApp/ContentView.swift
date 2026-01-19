@@ -1,5 +1,4 @@
 import SwiftUI
-import Kata
 
 public struct ContentView: View {
     public init() {}

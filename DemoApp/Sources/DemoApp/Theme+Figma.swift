@@ -1,5 +1,5 @@
 import SwiftUI
-import Kata
+@_exported import Kata
 
 // Generated from Figma Design Tokens using AI
 extension Theme {

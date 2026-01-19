@@ -1,5 +1,4 @@
 import SwiftUI
-import Kata
 
 struct TypographyShowcase: View {
     @Environment(\.theme) private var theme

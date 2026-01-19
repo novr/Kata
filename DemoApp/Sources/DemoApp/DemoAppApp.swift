@@ -1,8 +1,7 @@
 import SwiftUI
-import Kata
 
 @main
-struct DemoAppApp: App {
+struct DemoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

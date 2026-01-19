@@ -1,5 +1,4 @@
 import SwiftUI
-import Kata
 
 struct ColorsShowcase: View {
     @Environment(\.theme) private var theme
