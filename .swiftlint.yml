@@ -8,6 +8,15 @@ identifier_name:
     - md
     - lg
     - xl
+    - x
+    - y
+    - a
+    - r
+    - g
+    - b
+    - s
+    - t
+    - c
 
 custom_rules:
   kata_no_hardcoded_color:
