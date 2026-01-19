@@ -8,7 +8,7 @@ A disciplined Design System framework for SwiftUI. No hardcoded values allowed.
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/yourusername/Kata.git", from: "0.1.0")
+    .package(url: "https://github.com/novr/Kata.git", from: "0.2.0")
 ]
 ```
 
@@ -135,9 +135,9 @@ struct MyApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .kata { theme in
-                    theme.lightColors.primary = .blue
-                    theme.spacing.md = 20
+                .kata {
+                    $0.lightColors.primary = .blue
+                    $0.spacing.md = 20
                 }
         }
     }
@@ -195,6 +195,10 @@ Color.red == Color(red: 1, green: 0, blue: 0)  // false ⚠️
 ```
 
 Use the same tokens consistently to ensure correct equality checks.
+
+## Figma Integration
+
+See [Wiki: Figma Integration](https://github.com/novr/Kata/wiki/Figma-Integration) for converting Figma Design Tokens to Kata Theme using AI.
 
 ## Dark Mode
 

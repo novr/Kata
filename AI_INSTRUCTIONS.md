@@ -44,15 +44,19 @@ Sources/Kata/
   │   ├── Typography.swift
   │   ├── Spacing.swift
   │   ├── Radius.swift
+  │   ├── Shadow.swift
   │   └── Theme.swift    # The Master Container
   ├── Extensions/        # The Techniques (Helpers)
-  │   └── Modifiable.swift
+  │   ├── Modifiable.swift
+  │   ├── Color+Hex.swift
+  │   └── Color+Platform.swift
   ├── Defaults/          # The Origin (Standard Values)
   │   └── Theme+Standard.swift
   └── SwiftUI/           # The Jitsu (ViewModifiers)
       ├── View+Colors.swift
       ├── View+Typography.swift
       ├── View+Spacing.swift
+      ├── View+Shadow.swift
       └── Environment.swift
 ```
 
@@ -86,6 +90,20 @@ extension Modifiable {
         return copy
     }
 }
+```
+
+## 2.1 The `.kata { }` Modifier (Runtime Customization)
+For modifying themes at the View level:
+
+```swift
+// Define a custom theme statically
+let customTheme = Theme.standard.modified {
+    $0.lightColors.primary = .blue
+}
+
+// Or modify inline at View level
+ContentView()
+    .kata { $0.spacing.md = 24 }
 ```
 
 ## 3. View Modifiers (The Strike)
