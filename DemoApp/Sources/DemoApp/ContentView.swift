@@ -37,6 +37,12 @@ public struct ContentView: View {
                     }
 
                     NavigationLink {
+                        FigmaThemeDemo()
+                    } label: {
+                        Label("Figma Theme", systemImage: "paintbrush")
+                    }
+
+                    NavigationLink {
                         ComponentsShowcase()
                     } label: {
                         Label("Components", systemImage: "square.stack.3d.up")
