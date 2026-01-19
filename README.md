@@ -208,13 +208,33 @@ let figmaTheme = Theme.standard.modified {
 
 ## SwiftLint Rules
 
-Copy `.swiftlint.yml` custom rules to enforce Kata token usage:
+Add these custom rules to your `.swiftlint.yml` to enforce Kata token usage:
 
 ```yaml
 custom_rules:
-  kata_no_hardcoded_color:
-    regex: '\.(foregroundColor|foregroundStyle)\s*\(\s*\.(red|blue|...)'
-    message: "Use Kata color tokens: .foreground(\\.primary)"
+  kata_no_hardcoded_padding:
+    name: "Use Kata Spacing Tokens"
+    regex: '\.padding\s*\(\s*\d+\.?\d*\s*\)'
+    message: "Use Kata spacing: .padding(\\.md)"
+    severity: warning
+
+  kata_no_hardcoded_padding_edges:
+    name: "Use Kata Spacing Tokens"
+    regex: '\.padding\s*\(\s*\.(all|horizontal|vertical|top|bottom|leading|trailing)\s*,\s*\d+\.?\d*\s*\)'
+    message: "Use Kata spacing: .padding(\\.md, edges: .horizontal)"
+    severity: warning
+
+  kata_no_hardcoded_radius:
+    name: "Use Kata Radius Tokens"
+    regex: '\.cornerRadius\s*\(\s*\d+\.?\d*\s*\)'
+    message: "Use Kata radius: .cornerRadius(\\.md)"
+    severity: warning
+
+  kata_no_hardcoded_frame_spacing:
+    name: "Use Kata Spacing Tokens"
+    regex: '(VStack|HStack|LazyVStack|LazyHStack)\s*\(\s*spacing\s*:\s*\d+\.?\d*\s*\)'
+    message: "Consider using Kata spacing tokens for consistency"
+    severity: warning
 ```
 
 ## Requirements

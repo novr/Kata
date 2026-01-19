@@ -12,11 +12,8 @@ concurrency:
 
 jobs:
   build:
-    name: Build & Test (${{ matrix.os }})
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [macos-latest, macos-15]
+    name: Build & Test
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
 
