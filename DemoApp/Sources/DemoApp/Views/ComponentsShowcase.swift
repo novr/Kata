@@ -121,6 +121,9 @@ private struct SliderRow: View {
 }
 
 private struct KataButton: View {
+    @Environment(\.theme) private var theme
+    @Environment(\.colorScheme) private var colorScheme
+    
     enum Style { case primary, secondary, tertiary, success, error, warning }
 
     let title: String
@@ -131,7 +134,7 @@ private struct KataButton: View {
         Button(action: action) {
             Text(title)
                 .textStyle(\.callout)
-                .foregroundStyle(.white)
+                .foregroundStyle(contrastColor)
                 .padding(\.sm, edges: .horizontal)
                 .padding(\.xs, edges: .vertical)
         }
@@ -147,6 +150,21 @@ private struct KataButton: View {
         case .success: return \.success
         case .error: return \.error
         case .warning: return \.warning
+        }
+    }
+    
+    /// Contrast color for button text based on background brightness
+    /// Note: This is a simplified implementation for DemoApp.
+    /// In production, consider using Colors.onPrimary tokens or
+    /// a more sophisticated contrast calculation.
+    private var contrastColor: Color {
+        switch style {
+        case .warning:
+            // Yellow background needs dark text
+            return colorScheme == .dark ? .white : .black
+        default:
+            // Other colors are dark enough for white text
+            return .white
         }
     }
 }
