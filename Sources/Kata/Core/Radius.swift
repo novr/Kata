@@ -40,26 +40,4 @@ public struct Radius: Sendable, Modifiable, Equatable {
 
     /// Full (9999pt) - Pill/circle shape
     public var full: CGFloat
-
-    // MARK: - Initializer
-
-    public init(
-        none: CGFloat,
-        xs: CGFloat,
-        sm: CGFloat,
-        md: CGFloat,
-        lg: CGFloat,
-        xl: CGFloat,
-        xxl: CGFloat,
-        full: CGFloat
-    ) {
-        self.none = none
-        self.xs = xs
-        self.sm = sm
-        self.md = md
-        self.lg = lg
-        self.xl = xl
-        self.xxl = xxl
-        self.full = full
-    }
 }

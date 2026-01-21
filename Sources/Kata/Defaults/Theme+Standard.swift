@@ -27,7 +27,9 @@ extension Colors {
         info: .blue,
         outline: Color(uiColor: .separator),
         outlineVariant: Color(uiColor: .opaqueSeparator),
-        scrim: .black.opacity(0.4)
+        scrim: .black.opacity(0.4),
+        onAccent: .white,
+        onSurface: Color(uiColor: .label)
     )
 }
 
@@ -48,7 +50,9 @@ extension Colors {
         info: .blue,
         outline: Color(nsColor: .separatorColor),
         outlineVariant: Color(nsColor: .gridColor),
-        scrim: .black.opacity(0.4)
+        scrim: .black.opacity(0.4),
+        onAccent: .white,
+        onSurface: Color(nsColor: .labelColor)
     )
 }
 #endif
