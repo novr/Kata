@@ -15,33 +15,11 @@ public struct Colors: Sendable, Modifiable, Equatable {
     public var outlineVariant: Color
     public var scrim: Color
 
-    public init(
-        primary: Color,
-        secondary: Color,
-        tertiary: Color,
-        surface: Color,
-        surfaceVariant: Color,
-        background: Color,
-        error: Color,
-        success: Color,
-        warning: Color,
-        info: Color,
-        outline: Color,
-        outlineVariant: Color,
-        scrim: Color
-    ) {
-        self.primary = primary
-        self.secondary = secondary
-        self.tertiary = tertiary
-        self.surface = surface
-        self.surfaceVariant = surfaceVariant
-        self.background = background
-        self.error = error
-        self.success = success
-        self.warning = warning
-        self.info = info
-        self.outline = outline
-        self.outlineVariant = outlineVariant
-        self.scrim = scrim
-    }
+    // MARK: - Foreground Colors (HIG: On-colors)
+
+    /// Foreground color for content on accent/primary backgrounds
+    public var onAccent: Color
+
+    /// Foreground color for content on surface backgrounds
+    public var onSurface: Color
 }

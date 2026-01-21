@@ -9,7 +9,8 @@ struct ComponentsShowcase: View {
     var body: some View {
         ScrollView {
             VStack(spacing: theme.spacing.none) {
-                componentSection("Buttons") { buttonsDemo }
+                componentSection("Buttons (System)") { systemButtonsDemo }
+                componentSection("Buttons (Custom Style)") { customButtonsDemo }
                 componentSection("Cards") { cardsDemo }
                 componentSection("Inputs") { inputsDemo }
                 componentSection("Status Messages") { alertsDemo }
@@ -35,18 +36,36 @@ struct ComponentsShowcase: View {
         }
     }
 
-    private var buttonsDemo: some View {
+    // MARK: - System Buttons (Recommended)
+    // Use .borderedProminent + .tint() for standard buttons.
+    // System handles contrast colors automatically.
+    private var systemButtonsDemo: some View {
         VStack(spacing: theme.spacing.sm) {
             HStack(spacing: theme.spacing.sm) {
-                KataButton(title: "Primary", style: .primary) {}
-                KataButton(title: "Secondary", style: .secondary) {}
-                KataButton(title: "Tertiary", style: .tertiary) {}
+                Button("Primary") {}.buttonStyle(.borderedProminent).tint(\.primary)
+                Button("Secondary") {}.buttonStyle(.borderedProminent).tint(\.secondary)
+                Button("Tertiary") {}.buttonStyle(.borderedProminent).tint(\.tertiary)
             }
 
             HStack(spacing: theme.spacing.sm) {
-                KataButton(title: "Success", style: .success) {}
-                KataButton(title: "Error", style: .error) {}
-                KataButton(title: "Warning", style: .warning) {}
+                Button("Success") {}.buttonStyle(.borderedProminent).tint(\.success)
+                Button("Error") {}.buttonStyle(.borderedProminent).tint(\.error)
+                Button("Warning") {}.buttonStyle(.borderedProminent).tint(\.warning)
+            }
+        }
+        .padding(\.md)
+        .background(\.surface)
+        .cornerRadius(\.md)
+    }
+
+    // MARK: - Custom ButtonStyle
+    // Use when system styles don't meet design requirements.
+    // Uses .onAccent for text color (HIG: OnAccentColor pattern).
+    private var customButtonsDemo: some View {
+        VStack(spacing: theme.spacing.sm) {
+            HStack(spacing: theme.spacing.sm) {
+                Button("Filled") {}.buttonStyle(KataFilledButtonStyle(color: \.primary))
+                Button("Outline") {}.buttonStyle(KataOutlineButtonStyle(color: \.primary))
             }
         }
         .padding(\.md)
@@ -120,36 +139,6 @@ private struct SliderRow: View {
     }
 }
 
-private struct KataButton: View {
-    enum Style { case primary, secondary, tertiary, success, error, warning }
-
-    let title: String
-    let style: Style
-    let action: () -> Void
-
-    var body: some View {
-        Button(action: action) {
-            Text(title)
-                .textStyle(\.callout)
-                .foregroundStyle(.white)
-                .padding(\.sm, edges: .horizontal)
-                .padding(\.xs, edges: .vertical)
-        }
-        .background(backgroundKeyPath)
-        .cornerRadius(\.sm)
-    }
-
-    private var backgroundKeyPath: KeyPath<Colors, Color> {
-        switch style {
-        case .primary: return \.primary
-        case .secondary: return \.secondary
-        case .tertiary: return \.tertiary
-        case .success: return \.success
-        case .error: return \.error
-        case .warning: return \.warning
-        }
-    }
-}
 
 private struct KataCard<Content: View>: View {
     @Environment(\.theme) private var theme
@@ -239,6 +228,43 @@ private struct KataAlert: View {
         case .warning: return \.warning
         case .error: return \.error
         }
+    }
+}
+
+// MARK: - Custom ButtonStyles
+
+/// Filled button style using Kata tokens
+/// No @Environment needed - Kata ViewModifiers handle theme access internally
+private struct KataFilledButtonStyle: ButtonStyle {
+    let color: KeyPath<Colors, Color>
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .textStyle(\.callout)
+            .foreground(\.onAccent)
+            .padding(\.sm, edges: .horizontal)
+            .padding(\.xs, edges: .vertical)
+            .background(color)
+            .cornerRadius(\.sm)
+            .opacity(configuration.isPressed ? 0.8 : 1.0)
+    }
+}
+
+/// Outline button style using Kata tokens
+private struct KataOutlineButtonStyle: ButtonStyle {
+    let color: KeyPath<Colors, Color>
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .textStyle(\.callout)
+            .foreground(color)
+            .padding(\.sm, edges: .horizontal)
+            .padding(\.xs, edges: .vertical)
+            .background(\.surface)
+            .cornerRadius(\.sm)
+            .border(color)
+            .cornerRadius(\.sm)
+            .opacity(configuration.isPressed ? 0.8 : 1.0)
     }
 }
 

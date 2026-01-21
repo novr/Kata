@@ -44,27 +44,4 @@ public struct Spacing: Sendable, Modifiable, Equatable {
     /// Extra extra extra large (64pt)
     public var xxxl: CGFloat
 
-    // MARK: - Initializer
-
-    public init(
-        none: CGFloat,
-        xxs: CGFloat,
-        xs: CGFloat,
-        sm: CGFloat,
-        md: CGFloat,
-        lg: CGFloat,
-        xl: CGFloat,
-        xxl: CGFloat,
-        xxxl: CGFloat
-    ) {
-        self.none = none
-        self.xxs = xxs
-        self.xs = xs
-        self.sm = sm
-        self.md = md
-        self.lg = lg
-        self.xl = xl
-        self.xxl = xxl
-        self.xxxl = xxxl
-    }
 }

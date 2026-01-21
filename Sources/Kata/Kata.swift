@@ -68,6 +68,11 @@
 /// - `.frame(width: \.xl)` - Set frame width
 /// - `.frame(height: \.md)` - Set frame height
 /// - `.frame(width: \.xl, height: \.xl)` - Set frame size
+///
+/// ### Elevation
+/// - `.elevation(\.sm)` - Add subtle shadow
+/// - `.elevation(\.md)` - Add medium shadow
+/// - `.elevation(\.lg)` - Add prominent shadow
 
 // Re-export all public types
 @_exported import struct SwiftUI.Color
