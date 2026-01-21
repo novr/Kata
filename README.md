@@ -8,7 +8,7 @@ A disciplined Design System framework for SwiftUI. No hardcoded values allowed.
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/novr/Kata.git", from: "0.2.0")
+    .package(url: "https://github.com/novr/Kata.git", from: "0.3.0")
 ]
 ```
 
@@ -252,7 +252,9 @@ custom_rules:
 ## Requirements
 
 - iOS 15.0+
-- macOS 13.0+
+- macOS 12.0+
+- tvOS 15.0+
+- watchOS 8.0+
 - Swift 6.0+
 
 ## License
