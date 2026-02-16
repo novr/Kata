@@ -44,4 +44,14 @@ public struct Spacing: Sendable, Modifiable, Equatable {
     /// Extra extra extra large (64pt)
     public var xxxl: CGFloat
 
+    // MARK: - Semantic
+
+    /// HIG minimum touch target (44pt)
+    public var touchTarget: CGFloat
+
+    /// Hairline border / line width (1pt)
+    public var hairline: CGFloat
+
+    /// Max width for showcase layout (e.g. spacing bar)
+    public var showcaseBarMaxWidth: CGFloat
 }
