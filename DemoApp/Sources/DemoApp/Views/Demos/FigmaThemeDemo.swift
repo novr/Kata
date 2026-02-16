@@ -64,7 +64,7 @@ struct FigmaThemeDemo: View {
         VStack(spacing: theme.spacing.xs) {
             RoundedRectangle(cornerRadius: theme.radius.sm)
                 .fill(theme.colors(for: .light)[keyPath: color])
-                .frame(width: 60, height: 60)
+                .frame(width: \.xxxl, height: \.xxxl)
             Text(name)
                 .textStyle(\.caption)
                 .foreground(\.secondary)
