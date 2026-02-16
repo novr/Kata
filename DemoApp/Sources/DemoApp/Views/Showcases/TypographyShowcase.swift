@@ -46,7 +46,7 @@ struct TypographyShowcase: View {
                 .foreground(\.primary)
                 .padding(\.sm)
 
-            VStack(spacing: 1) { content() }
+            VStack(spacing: theme.spacing.hairline) { content() }
                 .cornerRadius(\.md)
                 .padding(\.sm, edges: .bottom)
         }

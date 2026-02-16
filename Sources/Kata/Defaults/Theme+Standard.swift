@@ -83,7 +83,10 @@ extension Spacing {
         lg: 24,
         xl: 32,
         xxl: 48,
-        xxxl: 64
+        xxxl: 64,
+        touchTarget: 44,
+        hairline: 1,
+        showcaseBarMaxWidth: 100
     )
 }
 

@@ -45,8 +45,7 @@ struct ColorsShowcase: View {
                 .foreground(\.primary)
                 .padding(\.sm)
 
-            // 1px separator for visual distinction between color rows
-            VStack(spacing: 1) { content() }
+            VStack(spacing: theme.spacing.hairline) { content() }
                 .cornerRadius(\.md)
                 .padding(\.sm, edges: .bottom)
         }
@@ -62,14 +61,12 @@ private struct ColorRow: View {
 
     var body: some View {
         HStack {
-            // 44pt: HIG standard touch target size
-            // 1px border: hairline for subtle definition
             RoundedRectangle(cornerRadius: theme.radius.sm)
                 .fill(theme.colors(for: colorScheme)[keyPath: keyPath])
-                .frame(width: 44, height: 44)
+                .frame(width: \.touchTarget, height: \.touchTarget)
                 .overlay(
                     RoundedRectangle(cornerRadius: theme.radius.sm)
-                        .strokeBorder(theme.colors(for: colorScheme).outline, lineWidth: 1)
+                        .strokeBorder(theme.colors(for: colorScheme).outline, lineWidth: theme.spacing.hairline)
                 )
 
             VStack(alignment: .leading, spacing: theme.spacing.xxs) {

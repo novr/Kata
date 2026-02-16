@@ -39,7 +39,7 @@ struct SpacingShowcase: View {
     private func spacingSection<Content: View>(_ title: String, @ViewBuilder content: () -> Content) -> some View {
         VStack(alignment: .leading, spacing: theme.spacing.none) {
             Text(title).textStyle(\.title3).foreground(\.primary).padding(\.sm)
-            VStack(spacing: 1) { content() }.cornerRadius(\.md).padding(\.sm, edges: .bottom)
+            VStack(spacing: theme.spacing.hairline) { content() }.cornerRadius(\.md).padding(\.sm, edges: .bottom)
         }
     }
 
@@ -63,8 +63,8 @@ private struct SpacingRow: View {
         HStack(spacing: theme.spacing.sm) {
             Rectangle()
                 .fill(theme.colors(for: colorScheme).primary)
-                .frame(width: theme.spacing[keyPath: keyPath], height: 24)
-                .frame(maxWidth: 100, alignment: .leading)
+                .frame(width: theme.spacing[keyPath: keyPath], height: theme.spacing.lg)
+                .frame(maxWidth: theme.spacing.showcaseBarMaxWidth, alignment: .leading)
 
             VStack(alignment: .leading, spacing: theme.spacing.xxs) {
                 Text("\\.\(name)").textStyle(\.headline).foreground(\.primary)
@@ -85,9 +85,9 @@ private struct RadiusRow: View {
 
     var body: some View {
         VStack(spacing: theme.spacing.sm) {
-            RoundedRectangle(cornerRadius: min(theme.radius[keyPath: keyPath], 32))
+            RoundedRectangle(cornerRadius: min(theme.radius[keyPath: keyPath], theme.spacing.xl))
                 .fill(theme.colors(for: colorScheme).primary)
-                .frame(width: 64, height: 64)
+                .frame(width: \.xxxl, height: \.xxxl)
 
             VStack(spacing: theme.spacing.xxs) {
                 Text("\\.\(name)").textStyle(\.headline).foreground(\.primary)

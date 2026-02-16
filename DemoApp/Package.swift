@@ -5,8 +5,8 @@ import PackageDescription
 let package = Package(
     name: "DemoApp",
     platforms: [
-        .iOS(.v16),
-        .macOS(.v13)
+        .iOS(.v17),
+        .macOS(.v13),
     ],
     products: [
         .library(
@@ -15,12 +15,16 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(path: "../")
+        .package(path: "../"),
+        .package(url: "https://github.com/eure/swift-storybook.git", from: "2.9.1"),
     ],
     targets: [
         .target(
             name: "DemoApp",
-            dependencies: ["Kata"]
+            dependencies: [
+                "Kata",
+                .product(name: "StorybookKit", package: "swift-storybook"),
+            ]
         ),
     ]
 )
